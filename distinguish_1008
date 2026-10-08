@@ -1,0 +1,16 @@
+numbs=[1,8,7,3,6,5,4,2]
+odd=[]
+even=[]
+
+for i in numbs:
+	if i%2==1:
+		odd.append(i)
+	else:
+		even.append(i)
+
+odd.sort()
+even.sort()
+
+j=odd+even
+print(j)
+
