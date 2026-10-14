@@ -1,0 +1,55 @@
+phone_book={}
+print("welcome")
+while True:
+	ins=input("command(l:add/C:query/D:delete/P:print/E:exit):")
+	if ins =='l':
+		print("-add mode-")
+		while True:
+			name=input("name")
+			if name in phone_book:
+				print("name exists:",phone_book[name])
+				if input("modify(Y/N)")=='Y':
+					phone=input("new phone:")
+					while not phone.isnumberic() or len(phone)!=11:
+						phone=input("invalid,again:")
+				else:
+					phone=phone_book[name]
+			else:
+				phone=input("enter phone")
+				while not  phone.isdigit() or len(phone)!=11:
+					phone=input("invaild,again:")
+			phone_book[name]=phone
+			if input("continue?(Y/N)")!='Y':
+				print()
+				break
+
+	elif ins == 'C':
+		print("Query mode")
+		while True:
+			name = input("name")
+			if name in phone_book:
+				print(name,phone_book[name],sep=":")
+			if input("continue?(Y/N)")!='Y':
+				print()
+				break
+
+	elif ins =='D':
+		print("Delete mode")
+		while True:
+			name=input("name")
+			if name in phone_book:
+				phone_book.pop(name)
+			if input("continue?(Y/N)")!='Y':
+				print()
+				break
+
+	elif ins =='P':
+		print("print mode")
+		for each in phone_book:
+			print(each,phone_book[each],sep=":")
+		print()
+
+	elif ins =='E':
+		print()	
+		break
+
