@@ -1,0 +1,36 @@
+base = {}
+def get_ins():
+	print("1.register")
+	print("2.login")
+	print("3.exit")
+	ins=input("command:")
+	while ins not in ('1','2','3'):
+		ins = input("error command,enter 1/2/3")	
+	return ins
+def register():
+	name=input("name:")
+	while name in base:
+		name=input("exist,again")
+	password=input("password")
+	base[name]=password
+	print("congratulation!")
+def login():
+	name=input("name:")
+	while name not in base:
+		name = input("name no found,input again")
+	password=input("password")
+	while password != base[name]:
+		password=input("wrong,again")
+	print("login success!")
+	
+while True:
+	print("welcome!")
+	ins=get_ins()
+	
+	if ins == '1':
+		register()
+	elif ins == '2':
+		login()
+	elif ins == '3':
+		break
+

@@ -1,0 +1,30 @@
+stack=[]
+
+def push(data):
+	stack.append(data)
+	print("pushed",data)
+
+def pop():
+	if len(stack) == 0:
+		print("stack is empty!")
+		return None
+	data= stack.pop()
+	print("popped",data)
+	return data
+
+def print_stack():
+	print("current(top to bottom):")
+	for item in reversed(stack):
+		print(item)
+
+push(250)
+push(111)
+push(277)
+print_stack()
+
+pop()
+print_stack()
+
+push(520)
+print_stack()
+
